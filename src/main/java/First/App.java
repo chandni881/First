@@ -1,5 +1,5 @@
 package First;
-
+import java.util.HashSet;
 /**
  * Hello world!
  *
@@ -17,8 +17,8 @@ public class App
         */
         System.out.println("The result is:" +isUniqueChar("Chandni"));
         System.out.println("The result is:" +isUniqueChar("Chand"));
-        System.out.println("The result is:" +isUniqueChar("aa"));
-        System.out.println("The result is:" +isUniqueChar(null));
+        System.out.println("The result is:" +isUniqueChar("aaaa"));
+         System.out.println("The result is:" +isUniqueChar(null));
         System.out.println("The result is:" +isUniqueChar(" "));
     }
 
@@ -26,7 +26,7 @@ public class App
     if(one==null && two==null){
         return true;
     }
-    if(one==null || two==null){
+    if(one==null || two==null){ 
         return false;
     }
     if(one.length()!=two.length()){
@@ -36,7 +36,7 @@ public class App
     return result.contains(two); 
 }*/
 
-private static boolean isUniqueChar(String str){
+/*private static boolean isUniqueChar(String str){
     
     if(str == null){
         return true;
@@ -58,4 +58,21 @@ private static boolean isUniqueChar(String str){
       }
     return true;
 }
+*/
+    private static boolean isUniqueChar(String str){
+        if(str==null){
+            return true;
+        }
+        HashSet<Character> hs = new HashSet<Character>();
+        
+        for(int i=0; i<str.length();i++){
+            if(hs.contains(str.charAt(i))){
+                return false;
+            }
+             hs.add(str.charAt(i));
+        }
+        //System.out.println(hs);
+        return true;
+    }
+
 }
