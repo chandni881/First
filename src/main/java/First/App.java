@@ -8,14 +8,21 @@ public class App
 {
     public static void main( String[] args )
     {
+        /*
         System.out.println( "Hello World!" );
         System.out.println("The result is:" +isRotation("hello", "ohell")); 
         System.out.println("The result is:" +isRotation(null,null));
         System.out.println("The result is:" +isRotation(null,"chandni"));
         System.out.println("The result is:" +isRotation("Gaurang","Chandni"));        
+        */
+        System.out.println("The result is:" +isUniqueChar("Chandni"));
+        System.out.println("The result is:" +isUniqueChar("Chand"));
+        System.out.println("The result is:" +isUniqueChar("aa"));
+        System.out.println("The result is:" +isUniqueChar(null));
+        System.out.println("The result is:" +isUniqueChar(" "));
     }
 
-private static boolean isRotation (String one, String two){
+/*private static boolean isRotation (String one, String two){
     if(one==null && two==null){
         return true;
     }
@@ -27,5 +34,28 @@ private static boolean isRotation (String one, String two){
     }
     String result=one+one;
     return result.contains(two); 
+}*/
+
+private static boolean isUniqueChar(String str){
+    
+    if(str == null){
+        return true;
+    }
+    if (str == " "){
+        return true;
+    }
+     
+    for(int i=0;i<str.length();i++){
+        char c = str.charAt(i);
+ 
+        for (int j=i+1; j<str.length();j++){
+            char cc = str.charAt(j);
+
+                if (c == cc){
+                return false;
+                 }
+            }
+      }
+    return true;
 }
 }
