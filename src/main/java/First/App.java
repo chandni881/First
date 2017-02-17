@@ -18,7 +18,7 @@ public class App
         System.out.println("The result is:" +isUniqueChar("Chandni"));
         System.out.println("The result is:" +isUniqueChar("Chand"));
         System.out.println("The result is:" +isUniqueChar("aaaa"));
-         System.out.println("The result is:" +isUniqueChar(null));
+        System.out.println("The result is:" +isUniqueChar(null));
         System.out.println("The result is:" +isUniqueChar(" "));
     }
 
