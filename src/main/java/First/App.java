@@ -1,6 +1,7 @@
 package First;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Set;
 /**
  * Hello world!
  *
@@ -9,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println("The result is:" +isAnagram("hello", "ohell")); 
+        System.out.println("The result is:" +isAnagram("hello", "ohlll")); 
         System.out.println("The result is:" +isAnagram(null,null));
         System.out.println("The result is:" +isAnagram(null,"chandni"));
         System.out.println("The result is:" +isAnagram("Gaurangii","Chandni"));        
@@ -53,8 +54,8 @@ private static boolean isAnagram (String one, String two){
     if(one.length()!=two.length()){
        return false;
     }
-    
-    HashMap<Character, Integer> hmap1 = new HashMap<Character, Integer>();
+    //Using two HashMaps and comparing their hashcodes
+    /*HashMap<Character, Integer> hmap1 = new HashMap<Character, Integer>();
     HashMap<Character, Integer> hmap2 = new HashMap<Character, Integer>();
     
     hmap1=makeItAHashMap(one);
@@ -64,7 +65,27 @@ private static boolean isAnagram (String one, String two){
         return true;
     }
     return false;
-   
+    */
+    
+    //Different approach using only one hashmap
+    HashMap<Character, Integer> hmap1 = new HashMap<Character, Integer>();
+    hmap1=makeItAHashMap(one);
+    
+    for(int i=0; i<two.length();i++){
+        if(!hmap1.containsKey(two.charAt(i))){
+            return false;
+        }
+        hmap1.put(two.charAt(i), hmap1.get(two.charAt(i))-1);
+        }
+    System.out.println(hmap1);
+    Set<Character> ListOfKeys= hmap1.keySet();
+    
+    for(char c : ListOfKeys){
+        if (hmap1.get(c)!=0){
+            return false;
+        }
+    }
+    return true;
    }
 
 private static HashMap<Character, Integer> makeItAHashMap(String str){
@@ -75,6 +96,8 @@ private static HashMap<Character, Integer> makeItAHashMap(String str){
         }
         hmap.put(str.charAt(i), hmap.get(str.charAt(i))+1);
     }
+    
+    //System.out.println(hmap);
     return hmap;
 }
 
