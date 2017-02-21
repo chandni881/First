@@ -9,10 +9,10 @@ public class App
     public static void main( String[] args )
     {
        //System.out.println( "Hello World!" );
-       int series; int n=20;
-       int arrayValues[] = new int[n+1];
-       arrayValues[0]=0;
-       arrayValues[1]=1;
+       int series; int n= -1;
+     //  int arrayValues[] = new int[n+1];
+      // arrayValues[0]=0;
+       //arrayValues[1]=1;
       
        series=fib(n);
       System.out.println(series);
@@ -37,6 +37,10 @@ public class App
     //Fibonacci series using iteration
     private static int fib(int n){
         int a=0, b=1, sum=0;
+        if(n < 0){
+            System.out.println("Please pass a positive number");
+            return -1;
+        }
         if(n ==0 )
           {
              return 0;
