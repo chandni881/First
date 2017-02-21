@@ -8,24 +8,48 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        System.out.println("The result is:" +isRotation("hello", "ohell")); 
-        System.out.println("The result is:" +isRotation(null,null));
-        System.out.println("The result is:" +isRotation(null,"chandni"));
-        System.out.println("The result is:" +isRotation("Gaurang","Chandni"));        
+       //System.out.println( "Hello World!" );
+       int series; int n=20;
+       int arrayValues[] = new int[n+1];
+       arrayValues[0]=0;
+       arrayValues[1]=1;
+      
+       series=fib(n);
+      System.out.println(series);
+        
     }
 
-private static boolean isRotation (String one, String two){
-    if(one==null && two==null){
-        return true;
+// Fibonaaci series using dynamic programming
+// Run time of this method is O(n) compare to regular recursion which is exponential
+/*private static int fib(int n, int[] arr){
+   
+    if(n ==0 )
+    {
+      return 0;
     }
-    if(one==null || two==null){
-        return false;
+    if(arr[n]>0){
+        return arr[n];
     }
-    if(one.length()!=two.length()){
-        return false;
+    arr[n] = fib(n-1, arr) + fib(n-2, arr);
+    return arr[n];
+}*/
+
+    //Fibonacci series using iteration
+    private static int fib(int n){
+        int a=0, b=1, sum=0;
+        if(n ==0 )
+          {
+             return 0;
+          }
+        if(n ==1 ){
+            return 1;
+        }
+        for(int i=0; i<n;i++){
+            a = b;
+            b = sum;
+            sum = a + b ;
+        }
+        return sum;
     }
-    String result=one+one;
-    return result.contains(two); 
-}
+
 }
