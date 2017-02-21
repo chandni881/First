@@ -9,23 +9,16 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        System.out.println("The result is:" +isRotation("hello", "ohell")); 
-        System.out.println("The result is:" +isRotation(null,null));
-        System.out.println("The result is:" +isRotation(null,"chandni"));
-        System.out.println("The result is:" +isRotation("Gaurang","Chandni"));        
+        System.out.println("The result is:" +isPalindrome("hello"); 
+        System.out.println("The result is:" +isPalindrome(null);
+        System.out.println("The result is:" +isPalindrome("aa");
+        System.out.println("The result is:" +isPalindrome("aabcc"));        
     }
 
-private static boolean isRotation (String one, String two){
-    if(one==null && two==null){
+private static boolean isPalindrome (String str){
+    if(str==null){
         return true;
     }
-    if(one==null || two==null){
-        return false;
-    }
-    if(one.length()!=two.length()){
-        return false;
-    }
-    String result=one+one;
-    return result.contains(two); 
+    
 }
 }
