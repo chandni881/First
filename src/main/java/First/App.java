@@ -8,24 +8,19 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        System.out.println("The result is:" +isRotation("hello", "ohell")); 
-        System.out.println("The result is:" +isRotation(null,null));
-        System.out.println("The result is:" +isRotation(null,"chandni"));
-        System.out.println("The result is:" +isRotation("Gaurang","Chandni"));        
+        System.out.println(solve(20,56));   
     }
-
-private static boolean isRotation (String one, String two){
-    if(one==null && two==null){
-        return true;
+    
+    public static int solve(int numOfHeads, int numOfLegs){
+        int pigs,totLegs = 0;
+        for(int chicken=0; chicken < numOfHeads; chicken++){
+            pigs = numOfHeads - chicken;
+            totLegs = 2 * chicken +  4 * pigs;
+         if(totLegs == numOfLegs){
+             return pigs;
+         }
+        }
+        return 0;
     }
-    if(one==null || two==null){
-        return false;
-    }
-    if(one.length()!=two.length()){
-        return false;
-    }
-    String result=one+one;
-    return result.contains(two); 
-}
+    
 }
